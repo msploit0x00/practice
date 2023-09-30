@@ -15,8 +15,7 @@ class MyHome extends StatefulWidget {
 }
 
 class _MyHomeState extends State<MyHome> {
-
-int index = 0;
+  int index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,9 @@ int index = 0;
         backgroundColor: Colors.white,
         elevation: 0.0,
         shadowColor: Colors.transparent,
-        leading: Image.asset("assets/images/logo.png"),
+        leading: InkWell(child: Image.asset("assets/images/logo.png"), onTap: () {
+          Navigator.pushNamed(context, SecondScreen.routeName);
+        },),
         title: Text(
           "Moody",
           style: TextStyle(color: Colors.black),
@@ -132,14 +133,16 @@ int index = 0;
                     Colors.purple.shade100),
               ],
             ),
-            SizedBox(height: 30,),
+            SizedBox(
+              height: 30,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Excercise("assets/images/beathing.png", "Beathing",
                     Colors.orange.shade50),
-                Excercise("assets/images/yoga.png", "Yoga",
-                    Colors.blue.shade100),
+                Excercise(
+                    "assets/images/yoga.png", "Yoga", Colors.blue.shade100),
               ],
             ),
           ],
@@ -151,16 +154,17 @@ int index = 0;
         unselectedItemColor: Colors.blueGrey[400],
         onTap: (value) {
           index = value;
-          setState(() {
-            
-          });
+          setState(() {});
         },
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "*", backgroundColor: Colors.white),
-          BottomNavigationBarItem(icon: Icon(Icons.grid_view), label: "*"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_month_outlined), label: "*"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "*"),
+              icon: Icon(Icons.home),
+              label: ".",
+              backgroundColor: Colors.white),
+          BottomNavigationBarItem(icon: Icon(Icons.grid_view), label: "."),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_month_outlined), label: "."),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "."),
         ],
       ),
     );

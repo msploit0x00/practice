@@ -24,9 +24,12 @@ class _MyHomeState extends State<MyHome> {
         backgroundColor: Colors.white,
         elevation: 0.0,
         shadowColor: Colors.transparent,
-        leading: InkWell(child: Image.asset("assets/images/logo.png"), onTap: () {
-          Navigator.pushNamed(context, SecondScreen.routeName);
-        },),
+        leading: InkWell(
+          child: Image.asset("assets/images/logo.png"),
+          onTap: () {
+            Navigator.pushNamed(context, SecondScreen.routeName);
+          },
+        ),
         title: Text(
           "Moody",
           style: TextStyle(color: Colors.black),
@@ -161,7 +164,12 @@ class _MyHomeState extends State<MyHome> {
               icon: Icon(Icons.home),
               label: ".",
               backgroundColor: Colors.white),
-          BottomNavigationBarItem(icon: Icon(Icons.grid_view), label: "."),
+          BottomNavigationBarItem(
+              icon: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, SecondScreen.routeName);
+                },
+                child: Icon(Icons.grid_view)),label: "."),
           BottomNavigationBarItem(
               icon: Icon(Icons.calendar_month_outlined), label: "."),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "."),
